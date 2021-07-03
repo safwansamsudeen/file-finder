@@ -10,7 +10,7 @@ def path_black_list_conditions(file):
     return not (
         file.name.startswith('.') or
         any(file.match(d) for d in EXCLUDED_DIRS) or
-        any(file.name.endswith(ext) for ext in EXCLUDED_EXTS))
+        any(file.suffix == ext for ext in EXCLUDED_EXTS))
 
 
 def indexer(dirs, index=None):
