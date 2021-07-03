@@ -29,19 +29,18 @@ def find_files(search_pattern):
 
     for path in index:
         path = Path(path['path'])
-        pattern_results = {}
 
-        for pattern in split_pattern:
-            for path_part in split_string(str(path.name)):
+        pattern_matched = 0
+        for path_part in split_string(str(path.name)):
+            for pattern in split_pattern:
                 if re.match(f'^{re.escape(pattern)}', path_part, re.IGNORECASE):
-                    result.append(str(path))
-                    break
+                    pattern_matched += 1
                 elif re.match(f'\.{re.escape(pattern)}', path.suffix, re.IGNORECASE):
-                    result.append(str(path))
-                    break
-            if len(pattern_results) == len(split_pattern) and ('starting' in pattern_results.values() or 'extention' in pattern_results.values()):
-                result.append(str(path))
+                    pattern_matched += 1
+        if pattern_matched >= len(split_pattern):
+            result.append(str(path))
     return result
 
 
-print(find_files(input('Search for: ')))
+if __name__ == '__main__':
+    print(find_files(input('Search for: ')))

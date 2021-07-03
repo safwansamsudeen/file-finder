@@ -1,2 +1,4 @@
 venv
 index.json
+temp*
+.DS_Store
