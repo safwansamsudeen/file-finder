@@ -2,14 +2,14 @@ from pathlib import Path
 import json
 
 DIRS = ['/Applications', '/Users/safwan']
-EXCLUDED_DIRS = ['Library', 'opt', 'node_modules']
+EXCLUDED_PATHS = ['Library', 'opt', 'node_modules', '__pycache__', 'Icon?']
 EXCLUDED_EXTS = ['.plist']
 
 
 def path_black_list_conditions(file):
     return not (
         file.name.startswith('.') or
-        any(file.match(d) for d in EXCLUDED_DIRS) or
+        any(file.match(d) for d in EXCLUDED_PATHS) or
         any(file.suffix == ext for ext in EXCLUDED_EXTS))
 
 
