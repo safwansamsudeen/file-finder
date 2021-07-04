@@ -18,7 +18,7 @@ def indexer(dirs, index=None):
         index = []
 
     for dir in dirs:
-        for path in filter(path_black_list_conditions, Path(dir).iterdir()):
+        for path in sorted(filter(path_black_list_conditions, Path(dir).iterdir())):
             if is_folder(path):
                 indexer([path], index)
 
