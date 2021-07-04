@@ -1,6 +1,8 @@
-const fs = require('fs')
+const fs = require('fs');
 const path_module = require('path');
-import *  as settings from './settings'
+
+import * as settings from './settings';
+
 
 function indexer(dirs, index = null) {
     if (index === null) {
@@ -10,10 +12,11 @@ function indexer(dirs, index = null) {
     var subDirs;
 
     for (let dir of dirs) {
-        subDirs = []
+        subDirs = [];
+
         for (let path of fs.readdirSync(dir).filter(pathBlackListConditions).sort()) {
-            path = path_module.join(dir, path)
-            if (is_folder(path)) indexer([path], index)
+            path = path_module.join(dir, path);
+            if (is_folder(path)) indexer([path], index);
             index.push({
                 path: fs.realpathSync(path),
             });
@@ -32,13 +35,15 @@ function pathBlackListConditions(path) {
 
 function is_folder(path) {
     if (settings.APP_EXTENTIONS.includes(path_module.extname(path))) {
-        return false
+        return false;
     }
+
     try {
-        fs.readdirSync(path)
+        fs.readdirSync(path);
     } catch (err) {
         return false;
     }
+
     return true;
 }
 
