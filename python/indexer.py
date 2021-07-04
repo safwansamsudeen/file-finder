@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import sys
 
 DIRS = ['/Applications', '/Users/safwan']
 EXCLUDED_PATHS = ['Library', 'opt', 'node_modules', '__pycache__', 'Icon?']
@@ -40,5 +41,5 @@ def is_folder(path):
 
 
 index = indexer(DIRS)
-with open('index.json', 'w') as f:
+with open(sys.argv[1], 'w') as f:
     json.dump(index, f)
