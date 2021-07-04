@@ -2,9 +2,7 @@ from pathlib import Path
 import json
 import sys
 
-DIRS = ['/Applications', '/Users/safwan']
-EXCLUDED_PATHS = ['Library', 'opt', 'node_modules', '__pycache__', 'Icon?']
-EXCLUDED_EXTS = ['.plist']
+from settings import *
 
 
 def path_black_list_conditions(file):
