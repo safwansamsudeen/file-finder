@@ -1,7 +1,4 @@
-venv
 index.json
 temp*
 .DS_Store
-settings*
-__pycache__
-python
+settings.js

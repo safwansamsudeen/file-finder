@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path_module = require('path');
 
-import * as settings from './settings';
+const settings = require('./settings')
 
 
 function indexer(dirs, index = null) {
