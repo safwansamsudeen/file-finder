@@ -3,7 +3,7 @@ const path_module = require('path');
 
 
 function splitString(str) {
-    return str.split(/(?=[A-Z\-])|[_ ]/)
+    return str.split(/(?=[A-Z])|[_\- ]/)
 }
 
 
