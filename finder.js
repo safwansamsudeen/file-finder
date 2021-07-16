@@ -7,8 +7,7 @@ function splitString(str) {
 }
 
 
-function find_files(searchPattern) {
-    const index = JSON.parse(fs.readFileSync(path_module.join(__dirname, '../index.json')));
+function find_files(searchPattern, index) {
     var searchPatterns = splitString(searchPattern)
     var result = []
     var path, pathParts, allPartsStart;
